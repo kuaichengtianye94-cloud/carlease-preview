@@ -73,6 +73,14 @@
         "@type": "Answer",
         "text": "契約満了時に、そのまま車両を買い取っていただけるプランです。長く使う予定の車両は、リースアップを選ぶことで将来的にご自身の所有車にできます。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "車両はどんなのがありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "その時の在庫車両によって異なりますが、平成20年式〜、走行距離5万km〜の車両をご用意しております。詳しい車種・年式はお電話・LINEでお気軽にお問い合わせください。"
+      }
     }
   ]
 }
@@ -132,49 +140,48 @@
 
   /* ===== HEADER ===== */
   header {
-    background: rgba(250,247,241,.92);
-    backdrop-filter: blur(10px);
+    background: var(--ink);
     padding: 0 40px;
-    height: 104px;
+    height: 108px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255,255,255,.12);
     transition: height .35s ease, box-shadow .35s ease;
   }
-  header.scrolled { height: 78px; box-shadow: 0 10px 30px -20px rgba(13,21,38,.35); }
-  .logo { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 1.55rem; color: var(--ink); letter-spacing: -.01em; white-space: nowrap; }
+  header.scrolled { height: 80px; box-shadow: 0 10px 30px -20px rgba(0,0,0,.5); }
+  .logo { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 2rem; color: #fff; letter-spacing: -.01em; white-space: nowrap; }
   .header-links { display: flex; align-items: center; gap: 18px; }
   .header-links .tel-link, .header-links .line-link {
-    text-decoration: none; font-weight: 800; font-size: 1.15rem;
-    padding: 16px 34px; border-radius: 34px; transition: transform .25s ease;
+    text-decoration: none; font-weight: 800; font-size: 1.3rem;
+    padding: 18px 38px; border-radius: 34px; transition: transform .25s ease;
     display: inline-block; white-space: nowrap;
   }
   .header-links .tel-link { background: linear-gradient(120deg, var(--gold-1), var(--gold-2)); color: var(--ink); }
-  .header-links .line-link { background: #06C755; color: #fff; font-size: 1.02rem; }
+  .header-links .line-link { background: #06C755; color: #fff; font-size: 1.15rem; }
   .header-links .tel-link:hover, .header-links .line-link:hover { transform: translateY(-2px); }
   @media (max-width: 760px) {
-    header { padding: 0 20px; height: 68px; }
-    .logo { font-size: 1.02rem; }
+    header { padding: 0 20px; height: 72px; }
+    .logo { font-size: 1.3rem; }
     .header-links { display: none; }
   }
 
   .header-right { display: flex; align-items: center; gap: 20px; }
   .menu-btn {
-    flex: none; width: 46px; height: 46px; background: none; border: 1px solid var(--line);
+    flex: none; width: 46px; height: 46px; background: none; border: 1px solid rgba(255,255,255,.3);
     border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 5px; cursor: pointer; padding: 0;
   }
-  .menu-btn span { width: 20px; height: 2px; background: var(--ink); transition: transform .3s ease, opacity .3s ease; }
+  .menu-btn span { width: 20px; height: 2px; background: #fff; transition: transform .3s ease, opacity .3s ease; }
   .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .site-nav {
-    position: fixed; top: 104px; left: 0; right: 0; z-index: 99;
+    position: fixed; top: 108px; left: 0; right: 0; z-index: 99;
     background: var(--white); border-bottom: 1px solid var(--line);
     display: flex; flex-direction: column; padding: 6px 40px 20px;
     transform: translateY(-14px); opacity: 0; pointer-events: none;
@@ -188,7 +195,7 @@
   }
   .site-nav a:last-child { border-bottom: none; }
   .site-nav a:hover { color: var(--gold-2); }
-  header.scrolled + .site-nav { top: 78px; }
+  header.scrolled + .site-nav { top: 80px; }
 
   .nav-scrim {
     position: fixed; inset: 0; background: rgba(13,21,38,.28); z-index: 98;
@@ -200,7 +207,7 @@
     .header-right { gap: 10px; }
     .menu-btn { width: 40px; height: 40px; }
     header.scrolled { height: 56px; }
-    .site-nav { top: 68px; padding: 4px 20px 16px; }
+    .site-nav { top: 72px; padding: 4px 20px 16px; }
     header.scrolled + .site-nav { top: 56px; }
   }
 
@@ -728,6 +735,10 @@
       <div class="faq-item reveal">
         <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5"><span class="qtext"><span class="tag">Q</span>リースアップ契約とは何ですか？</span><span class="chev" aria-hidden="true">＋</span></button>
         <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner"><span class="tag">A</span>契約満了時に、そのまま車両を買い取っていただけるプランです。長く使う予定の車両は、リースアップを選ぶことで将来的にご自身の所有車にできます。詳しくはお電話・LINEでご相談ください。</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6"><span class="qtext"><span class="tag">Q</span>車両はどんなのがありますか？</span><span class="chev" aria-hidden="true">＋</span></button>
+        <div class="faq-a" id="faq-a-6" role="region" aria-labelledby="faq-q-6"><div class="faq-a-inner"><span class="tag">A</span>その時の在庫車両によって異なりますが、平成20年式〜、走行距離5万km〜の車両をご用意しております。詳しい車種・年式はお電話・LINEでお気軽にお問い合わせください。</div></div>
       </div>
     </div>
 
