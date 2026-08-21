@@ -231,15 +231,19 @@
   .hero-stat .v { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--ink); line-height: 1; }
   .hero-stat .l { font-size: .72rem; color: var(--muted); margin-top: 8px; letter-spacing: .03em; }
   .hero-cta { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
-  .hero-art { position: relative; display: flex; align-items: center; justify-content: center; }
+  .hero-art { position: relative; display: flex; align-items: center; justify-content: center; gap: 6px; }
   .hero-art::before {
     content: ''; position: absolute; inset: -10% -6%;
     background: radial-gradient(closest-side, rgba(227,192,127,.4), transparent 72%);
     filter: blur(6px); z-index: 0;
   }
-  .hero-art img {
-    position: relative; z-index: 1; width: 100%; max-width: 560px;
+  .hero-art-item { position: relative; z-index: 1; flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .hero-art-item img {
+    width: 100%; max-width: 300px;
     filter: drop-shadow(0 30px 50px rgba(13,21,38,.28));
+  }
+  .hero-art-item .cap {
+    font-size: .72rem; letter-spacing: .12em; font-weight: 700; color: var(--muted);
   }
   @media (max-width: 980px) {
     .hero { grid-template-columns: 1fr; padding-top: 48px; text-align: center; }
@@ -247,7 +251,7 @@
     .hero-sub { margin-left: auto; margin-right: auto; }
     .hero-stats { justify-content: center; }
     .hero-cta { justify-content: center; }
-    .hero-art img { max-width: 340px; }
+    .hero-art-item img { max-width: 200px; }
   }
   .btn-solid {
     position: relative; overflow: hidden;
@@ -547,7 +551,10 @@
     </div>
     <p style="margin-top:18px; font-size:.76rem; color:var(--muted);">※初期費用0円は神戸ナンバー地域が対象です。他地域は登録代行費用を申し受けます。</p>
   </div>
-  <div class="hero-art"><img src="every-van-art.png" alt="軽貨物配送バン"></div>
+  <div class="hero-art">
+    <div class="hero-art-item"><img src="every-van-art.png" alt="軽バン"><span class="cap">軽バン</span></div>
+    <div class="hero-art-item"><img src="horo-van-art.jpg" alt="幌車"><span class="cap">幌車</span></div>
+  </div>
 </section>
 
 <!-- NEWS -->
